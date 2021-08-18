@@ -1,0 +1,28 @@
+Problem Statement ->
+King has 1000 bottles of wine to be consumed in a party after 7 days. Palace guards found one of the bottles was poisoned by a spy. 
+King wants rest 999 bottles in the party and for that the poisonous bottle has to be identified and discarded. King has given 10 prisoners 
+whom you can test. You have to find a strategy to identify the poisonous bottles using these 10 prisoners. 
+Below are a few key points to design a strategy. 
+1. Bottles are of infinite capacity - you can take out any amount for testing
+2. Even if you drink single drop of whole bottle you will die but in exactly 7 days
+3. You don't care about the lives of these 10 prisoners. 
+
+
+Solution ->
+Number the bottles 1 to 1000 and write the number in binary format.
+
+bottle 1 = 0000000001 (10 digit binary)
+bottle 2 = 0000000010
+bottle 500 = 0111110100
+bottle 1000 = 1111101000
+
+Now take 10 prisoners and number them 1 to 10, now let prisoner 1 take a sip from every bottle that has a 1 in its least significant bit. 
+Let prisoner 10 take a sip from every bottle with a 1 in its most significant bit and so on.
+
+prisoner = 10 9 8 7 6 5 4 3 2 1
+bottle 924 = 1 1 1 0 0 1 1 1 0 0
+
+For example, bottle no. 924 would be sipped by 10,9,8,5,4 and 3. That way if bottle no. 924 was the poisoned one, only those prisoners would die.
+After 7 days, line the prisoners up in their bit order and read each living prisoner as a 0 bit and each dead prisoner as a 1 bit. 
+The number that you get is the bottle of wine that was poisoned.
+1000 is less than 1024 (2^10). If there were 1024 or more bottles of wine it would take more than 10 prisoners.
