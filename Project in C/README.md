@@ -4,10 +4,20 @@ The HOSPITAL MANAGEMENT SYSTEM is designed for any Hospital to replace their exi
 
 * Note: This program will only work in Windows Operating System, because it has certain libraries that are only supported by Windows OS.
  
-### Advantages
+### Goals
 - Patients do not need to wait in long queues.
 - It will be easy to handle Patients as well as Doctor’s record.
 - This software reduces paperwork.
 - Information of the patients and doctors stores permanently.
 - This software saves the crucial time.
 - Provides easy management of transaction.
+
+### Specifications
+- Windows OS as it contains libraries such as windows.h
+- Dev CPP or any other C compiler/gcc environment to compile the file
+- Git bash/Github Desktop for cloning the repository
+- 256MB RAM, 10 GB Hard-Disk, 512KB cache-memory, Intel Pentium Dual-Core processor
+
+### Design
+
+
