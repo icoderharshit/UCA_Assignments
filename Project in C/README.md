@@ -19,5 +19,5 @@ The HOSPITAL MANAGEMENT SYSTEM is designed for any Hospital to replace their exi
 - 256MB RAM, 10 GB Hard-Disk, 512KB cache-memory, Intel Pentium Dual-Core processor
 
 ### Design
-
+It is designed in such a way that things become easy for the hospital when it comes to maintaining all the patient records along with their Problems, Prescribed Doctors etc. This software reduces the paper workload of the entry of the patients. It works according to the need and lowers the workload of user. It provides an easy navigation menu which a layman user can also use.
 
