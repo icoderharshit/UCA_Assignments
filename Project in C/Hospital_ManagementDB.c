@@ -95,7 +95,7 @@ void mainMenu(void)
 			editRecord();
 			break;
 		case 5:
-//			deleteRecord();
+			deleteRecord();
 			break;
 		case 6:
 			exitFunction();
@@ -327,7 +327,7 @@ void addRecord(void)
 					goto getProblem;
 				}
 			}
-		/* ------------------------- Presribed Doctor ------------------------- */
+		/* ------------------------- Prescribed Doctor ------------------------- */
 		getDoctor:
 			printf("\n\t\t\t Prescribed Doctor: ");
 			getchar();
@@ -466,7 +466,7 @@ while(fscanf(file,"%s %s %s %d %s %s %s %s %s\n", p.firstName, p.lastName, p.gen
 			gotoxy(1,18);
 			printf("%s %s",p.firstName, p.lastName);
 			gotoxy(25,18);
-			printf("%c",p.gender);
+			printf("%s",p.gender);
 			gotoxy(32,18);
 			printf("%i",p.age);
 			gotoxy(37,18);
@@ -538,11 +538,11 @@ void editRecord(void)
 		getch();
 		mainMenu();
 	}
-	while(fscanf(ek,"%s %s %c %i %s %s %s %s %s\n", p.firstName, p.lastName, &p.gender, &p.age, p.address, p.contactNo, p.email, p.problem, p.doctor)!=EOF)
+	while(fscanf(ek,"%s %s %s %d %s %s %s %s %s\n", p.firstName, p.lastName, p.gender, &p.age, p.address, p.contactNo, p.email, p.problem, p.doctor)!=EOF)
 	{
 		if(strcmp(p.firstName, name)==0)
 		{
-			validd=1;
+			validd=1;	
 			gotoxy(25,17);
 			printf("*** Existing Record ***");
 			gotoxy(10,19);
@@ -584,6 +584,12 @@ void editRecord(void)
 			{
 				fprintf(ft,"%s %s %s %d %s %s %s %s %s\n",p.firstName,p.lastName,p.gender, p.age,p.address,p.contactNo,p.email,p.problem,p.doctor);
 				printf("\n\n\t\t\tPatient record updated successfully...");
+				getch();
+			fclose(ft);
+	fclose(ek);
+	remove("recordDB.txt");
+   	rename("tempFile.txt","recordDB.txt");
+	mainMenu();	
 			}					
 		}
 		else
@@ -592,27 +598,53 @@ void editRecord(void)
 		}
 	}
 	if(!validd) 
-	{
+	{	
 		printf("\n\t\tNO RECORD FOUND...");
-	}
-	fclose(ft);
+		getch();
+		fclose(ft);
 	fclose(ek);
-	remove("recordDB.txt");
-   	rename("tempFile.txt","recordDB.txt");
-	getch();
-	mainMenu();		
-}
-
-
-
-
-
-
-
-
-
-
-
-
+	}
 	
-
+}
+void deleteRecord()
+{
+	char name[20];
+	int found=0;
+	system("cls");
+	title();// calling Title function
+	FILE *ek, *ft;
+	ft=fopen("tempFile1.txt","w+");
+	ek=fopen("recordDB.txt","r");
+	printf("\n\n\t\t\t!!!!!!!!!!!!!! Delete Patients Record !!!!!!!!!!!!!\n");
+//	gotoxy(12,8);
+	printf("\n Enter Patient Name to delete: ");
+	fflush(stdin);
+	scanf("%s",name);
+	name[0]=toupper(name[0]);
+	while (fscanf(ek,"%s %s %s %d %s %s %s %s %s", p.firstName, p.lastName, p.gender,&p.age, p.address, p.contactNo, p.email, p.problem, p.doctor)!=EOF)
+	{
+		if (strcmp(p.firstName,name)!=0)
+		fprintf(ft,"%s %s %s %d %s %s %s %s %s\n", p.firstName, p.lastName, p.gender,&p.age, p.address, p.contactNo, p.email, p.problem, p.doctor);
+		else 
+		{
+			printf("%s %s %s %d %s %s %s %s %s\n", p.firstName, p.lastName, p.gender,&p.age, p.address, p.contactNo, p.email, p.problem, p.doctor);
+			found=1;
+		}
+	}//while loop ends
+	if(found==0)
+	{
+		printf("\n\n\t\t\t Record not found....");
+		getch();
+		mainMenu();
+	}
+	else
+	{
+		fclose(ek);
+		fclose(ft);
+		remove("recordDB.txt");
+		rename("tempFile1.txt","recordDB.txt");
+		printf("\n\n\t\t\t Record deleted successfully :) ");
+		getch();
+		mainMenu();
+	}
+}
