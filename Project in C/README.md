@@ -1,6 +1,6 @@
 # Hospital Management System (Database in C)
 ### @Harshit Sharma 1910990073
-The HOSPITAL MANAGEMENT SYSTEM is designed for any Hospital to replace their existing manual, paper based system. The new system is to control patient, room availability, staff and operation room schedules. These services are to be provided in an efficient, cost effective manner, with the goal of reducing the time and resources currently required for such tasks.
+The HOSPITAL MANAGEMENT SYSTEM is designed for any Hospital to replace their existing manual, paper based system. The new system is to keep a record of patient details. The services are to be provided in an efficient, cost effective manner, with the goal of reducing the time and resources currently required for such tasks.
 
 * Note: This program will only work in Windows Operating System, because it has certain libraries that are only supported by Windows OS.
  
