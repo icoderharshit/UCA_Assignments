@@ -1,6 +1,6 @@
 /*
  * Solution to implement the Tower of Hanoi problem.
- * Aakash Singla 1910990073, 5th August, 2021 
+ * Harshit Sharma 1910990073, 5th August, 2021 
  * Assignment 5 (Recursion)
 */
 
